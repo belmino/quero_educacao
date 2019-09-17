@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quero Educação</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" >
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" >
+    <link rel="stylesheet" type="text/css" href="assets/css/mobile.css" >
+    <link rel="stylesheet" type="text/css" media="(min-width: 900px)" href="assets/css/desktop.css" >
+    <style>
+        .topnav {
+            background-color: #18ACC4;
+            overflow: hidden;
+            grid-column: span 12;
+        }
+
+
+        .dropdown {
+            float: right;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            padding: 14px 16px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 15px;    
+            border: none;
+            outline: none;
+            color: #f2f2f2;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .topnav a:hover, .dropdown:hover .dropbtn {
+            background-color: #007A8D;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .text_main2{
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px 4px;
+        }
+
+        .text_complement2{
+            font-size: 10px;
+        }
+
+        .modal {
+            /* This way it could be display flex or grid or whatever also. */
+            display: block;
+            
+            /* Probably need media queries here */
+            width: 600px;
+            max-width: 100%;
+            
+            height: 400px;
+            max-height: 100%;
+            
+            position: fixed;
+            
+            z-index: 100;
+            
+            left: 50%;
+            top: 50%;
+            
+            /* Use this for centering if unknown width/height */
+            transform: translate(-50%, -50%);
+
+            border-radius: 10px;
+            
+            background: #FBFBFB;
+            box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+        }
+        .closed {
+            display: none;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            
+            background: rgba(31, 45, 48, 0.88);
+        }
+        .modal-guts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            padding: 20px 50px 20px 20px;
+        }
+
+        .modal .close-button {
+            position: absolute;
+            line-height: 25px;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            
+            /* don't need to go crazy with z-index here, just sits over .modal-guts */
+            z-index: 1;
+            
+            background: #606061;
+            color: white;
+
+
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+
+        select {
+            /* width: 100%; */
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            height:30px;
+        }
+
+    
+
+
+
+    </style>
+</head>
+<body>
+    <header style="text-align: center;" >
+        <div class="info">
+            <div class="table_center_parent" >
+                <div class="table_center_child">
+                    <i class="fa fa-info-circle icone" ></i> 
+                    <div class="only_mobile">Ajuda</div>
+                </div>
+                <div class="table_center_child left_align " >
+                    <div class="text_main only_desktop">Como funciona</div>
+                </div>
+                <hr class="vr ">
+                <div class="table_center_child " >
+                    <i class="fa fa-whatsapp icone only_desktop"  ></i> 
+                </div>
+                <div class="table_center_child left_align " >
+                    <div class="text_main only_desktop">0800 123 2222</div> 
+                    <div class="text_complement only_desktop">Envie uma mensagem ou ligue</div>
+                </div>
+            </div>
+        </div>
+        <div class="logo">
+            <img src="assets/images/logo-querobolsa.svg" alt="querobolsa" height="40px">
+        </div>
+        <div class="user">
+            <div class="table_center_parent" >
+                <div class="table_center_child right_align" >
+                    <div class="text_main only_desktop">Nome Sobrenome</div>
+                </div>
+                <hr class="vr only_mobile">
+                <div class="table_center_child" >
+                    <i class="fa fa-user-circle-o icone" ></i>
+                    <div class="only_mobile">Conta </div>
+                </div>
+            </div>
+        </div>
+        
+              
+        <div class="topnav" >
+            <a href="#" style="font-size: 17px; font-weight: bold">Minha conta</a>
+            <a href="#" class="only_desktop">Pré-matrículas</a>
+            <a href="#" class="only_desktop">Bolsas favoritas</a>
+            <div class="dropdown only_mobile">
+                <button class="dropbtn">Menu 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Pré-matrículas</a>
+                    <a href="#">Bolsas favoritas</a>
+                </div>
+            </div> 
+        </div>
+    </header>
+    <main >
+        <!-- <ol class="breadcrumb nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Minha conta</a></li>
+            <li class="active"><a href="#">Bolsasfavoritas</a></li>
+        </ol> -->
+        <!-- <h2>Bolsas favoritas</h2> -->
+        <!-- <p>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis.</p> -->
+
+        <div class="card" >
+            <span class="fa-stack">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+            <div class="text_main ">Adicionar bolsa</div>
+            <div class="text_complement ">Clique para adicionar bolsas de cursos do seu interesse</div>
+            <a id="open-button" href="#">Open Modal</a>
+        </div>
+        <div class="card" >
+            <img src="assets/images/anhanguera.png" alt="anhanguera" >
+            <div class="text_main2">ANHANGUERA</div>
+            <div class="text_main2">Arquitetura e Urbanismo</div>
+            <div class="text_main2">3,8</div>
+            <hr>
+            <div class="text_main2">PRESENCIAL - NOITE</div>
+            <div class="text_complement2">Início das aulas em 05/07/2019</div>
+            <hr>
+            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
+            <div class="text_complement2 tachado" >R$ 1.487,31</div>
+            <div class="text_main2">R$ 453,63 /mês</div>
+            <div>
+                <button class="btn btn_excluir" >Excluir</button>
+                <button class="btn btn_oferta" >Ver oferta</button> 
+            </div>
+            <!-- <button class="btn btn_indisponivel" >Indisponível</button> -->
+        </div>
+
+        <div class="card" >
+            <img src="assets/images/anhanguera.png" alt="anhanguera" >
+            <div class="text_main2">ANHANGUERA</div>
+            <div class="text_main2">Arquitetura e Urbanismo</div>
+            <div class="text_main2">3,8</div>
+            <hr>
+            <div class="text_main2">PRESENCIAL - NOITE</div>
+            <div class="text_complement2">Início das aulas em 05/07/2019</div>
+            <hr>
+            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
+            <div class="text_complement2 tachado">R$ 1.487,31</div>
+            <div class="text_main2">R$ 453,63 /mês</div>
+            <div>
+                <button class="btn btn_excluir" >Excluir</button>
+                <button class="btn btn_oferta" >Ver oferta</button>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="assets/images/anhanguera.png" alt="anhanguera"  >
+            <div class="text_main2">ANHANGUERA</div>
+            <div class="text_main2">Arquitetura e Urbanismo</div>
+            <div class="text_main2">3,8</div>
+            <hr>
+            <div class="text_main2">PRESENCIAL - NOITE</div>
+            <div class="text_complement2">Início das aulas em 05/07/2019</div>
+            <hr>
+            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
+            <div class="text_complement2 tachado">R$ 1.487,31</div>
+            <div class="text_main2">R$ 453,63 /mês</div>
+            <div>
+                <button class="btn btn_excluir" >Excluir</button>
+                <button class="btn btn_oferta" >Ver oferta</button>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="assets/images/anhanguera.png" alt="anhanguera" >
+            <div class="text_main2">ANHANGUERA</div>
+            <div class="text_main2">Arquitetura e Urbanismo</div>
+            <div class="text_main2">3,8</div>
+            <hr>
+            <div class="text_main2">PRESENCIAL - NOITE</div>
+            <div class="text_complement2">Início das aulas em 05/07/2019</div>
+            <hr>
+            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
+            <div class="text_complement2 tachado">R$ 1.487,31</div>
+            <div class="text_main2">R$ 453,63 /mês</div>
+            <div>
+                <button class="btn btn_excluir" >Excluir</button>
+                <button class="btn btn_oferta" >Ver oferta</button>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="assets/images/anhanguera.png" alt="anhanguera" >
+            <div class="text_main2">ANHANGUERA</div>
+            <div class="text_main2">Arquitetura e Urbanismo</div>
+            <div class="text_main2">3,8</div>
+            <hr>
+            <div class="text_main2">PRESENCIAL - NOITE</div>
+            <div class="text_complement2">Início das aulas em 05/07/2019</div>
+            <hr>
+            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
+            <div class="text_complement2 tachado">R$ 1.487,31</div>
+            <div class="text_main2">R$ 453,63 /mês</div>
+            <div>
+                <button class="btn btn_excluir" >Excluir</button>
+                <button class="btn btn_oferta" >Ver oferta</button>
+            </div>
+        </div>
+
+    </main>
+    <footer >
+        <div class="contato"  >
+            <div class="table_center_parent">
+                <div class="table_center_child " >
+                    <i class="fa fa-whatsapp icone" ></i> 
+                </div>
+                <div class="table_center_child left_align" >
+                    <div class="text_main">0800 123 2222</div> 
+                    <div class="text_complement only_mobile">Segunda a Sexta de 8h às 22h</div>
+                    <div class="text_complement only_desktop">Seg - Sex 8h-22h</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat">
+            <div class="table_center_parent" >
+                <div class="table_center_child">
+                    <i class="fa fa-comments-o icone" ></i> 
+                    <div class="only_mobile">Chat</div>
+                </div>
+                <div class="table_center_child left_align" >
+                    <div class="text_main only_desktop">Chat ao vivo</div>  
+                    <div class="text_complement only_desktop">Seg - Sex 8h-22h</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="email">
+            <div class="table_center_parent" >
+                <div class="table_center_child">
+                    <i class="fa fa-envelope icone" ></i> 
+                    <div class="only_mobile" >E-mail</div>
+                </div>
+                <div class="table_center_child left_align" >
+                    <div class="text_main only_desktop">Mande um e-mail</div>  
+                    <div class="text_complement only_desktop">Respondemos Rapidinho</div>
+                </div>
+            </div>
+        </div>
+        <div class="central">
+            <div class="table_center_parent" >
+                <div class="table_center_child">
+                    <i class="fa fa-info-circle icone" ></i> 
+                    <div class="only_mobile">Ajuda</div>
+                </div>
+                <div class="table_center_child left_align" >
+                    <div class="text_main only_desktop">Central de ajuda</div>  
+                    <div class="text_complement only_desktop">Encontre todas as respostas</div>
+                </div>
+            </div>
+        </div>
+        <div class="rodape" style='text-align:center;'>
+            <div style="line-height: 50px; font-size: 10px">Feito com <i class="fa fa-heart-o"  ></i> pela Quero Educação</div>
+        </div>    
+    </footer>
+
+
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="modal">
+        <a title="Close" id="close-button" class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
+        <div class="modal-guts">
+            <h2 style="font-size: 20px;font-weight: bold;padding-bottom: 5px;">Adicionar bolsa</h2>
+            <h3>Filtre e adicione as bolsas de seu interesse.</h3>
+            <br>
+
+            <form class="formulario" action="">
+                <div class="form_cell">
+                    <label style="display: block" for="">SELECIONE SUA CIDADE</label>
+                    <select name="" id="sel_cidade">
+                    </select>
+                </div>
+
+                <div class="form_cell">
+                    <label style="display: block" for="">SELECIONE O CURSO DE SUA PREFERÊNCIA</label>
+                    <select name="" id="sel_curso">
+                    </select>
+                </div>
+
+                <div class="form_cell">
+                    <label style="display: block" for="">COMO VOCÊ QUER ESTUDAR?</label>
+                    <div>
+                        <input type="checkbox" name="presencial" id="">Presencial
+                        <input type="checkbox" name="distancia" id="">A distancia
+                    </div>
+                </div>
+
+                <div class="form_cell">
+                    <label style="display: block" for="">ATÉ QUANTO PODE PAGAR?</label>
+                    <input type="range" name="valor" id="" min="100" max="10000">
+                </div>
+
+            </form>
+
+            <table id="tb_cursos"></table>
+
+        </div>
+    </div>
+    <script>
+        var modal = document.querySelector("#modal");
+        var modalOverlay = document.querySelector("#modal-overlay");
+        var closeButton = document.querySelector("#close-button");
+        var openButton = document.querySelector("#open-button");
+
+        closeButton.addEventListener("click", function() {
+            modal.classList.toggle("closed");
+            modalOverlay.classList.toggle("closed");
+        });
+
+        openButton.addEventListener("click", function() {
+            modal.classList.toggle("closed");
+            modalOverlay.classList.toggle("closed");
+        });
+
+        function ajax_get(url, callback) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                    } catch(err) {
+                        console.log(err.message + " in " + xhr.responseText);
+                        return;
+                    }
+                    // console.log(data);
+                    callback(data);
+                    
+                } else {
+                    console.log('The request failed!');
+                }
+            };
+
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
+        ajax_get('https://testapi.io/api/redealumni/scholarships', function(data) {
+            var cidades = [], cursos = [];
+            data.forEach(function(item){
+                if(!cidades.includes(item.campus.city)){
+                    cidades.push(item.campus.city);
+                }
+                if(!cursos.includes(item.course.name)){
+                    cursos.push(item.course.name);
+                }
+            });
+            cidades.sort(compare);
+            cursos.sort(compare);
+            data.sort(compare2);
+            // localStorage.setItem("cidades", JSON.stringify(cidades));
+            // localStorage.setItem("cursos", JSON.stringify(cursos));
+            localStorage.setItem("dados", JSON.stringify(data));
+            var sel_cidade = document.getElementById("sel_cidade");
+            var sel_curso = document.getElementById("sel_curso");
+            cidades.forEach(function(item){
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                sel_cidade.appendChild(option);
+            });
+            cursos.forEach(function(item){
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                sel_curso.appendChild(option);
+            });
+            var tb_curso = document.getElementById("tb_cursos");
+            var tBody = document.createElement('tbody');
+            tb_curso.appendChild(tBody);
+            // data.forEach(function(item){
+            //     var row = tBody.insertRow(-1);
+            //     var cell1 = row.insertCell(-1);
+            //     var img = document.createElement('img');
+            //     img.setAttribute('src', item.university.logo_url);
+            //     img.setAttribute('height', '60px');
+            //     img.setAttribute('width', '120px');
+            //     cell1.appendChild(img);
+            //     var cell2 = row.insertCell(-1);
+            //     cell2.innerText = item.course.name;
+            //     var cell3 = row.insertCell(-1);
+            //     cell3.innerText = item.price_with_discount;
+            // });
+            
+        });
+
+        function compare(a, b){
+            return (a<b)?-1:1;
+        }
+        function compare2(a, b){
+            if(a.university.name<b.university.name){
+                return -1;
+            }
+
+            if(a.university.name>b.university.name){
+                return 1;
+            }
+
+            return (a.course.name<b.course.name)?-1:1
+        }
+
+
+    </script>
+</body>
+</html>

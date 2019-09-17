@@ -1,0 +1,34 @@
+
+
+.only_mobile{
+    display: none;
+}
+
+.only_desktop{
+    display: block;
+}
+
+.chat, .email, .central{
+    grid-column: span 3;
+    border: none;
+}
+
+.info, .user {
+    grid-column: span 4;
+}
+
+.logo {
+    grid-column: span 4;
+}
+
+.contato{
+    grid-column: span 3;
+}
+
+
+ 
+
+.form_cell{
+    grid-column: span 6;
+}
+
