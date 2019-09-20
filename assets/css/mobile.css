@@ -336,7 +336,7 @@ header, footer{
     display: grid;
     align-items: center;
     grid-template-rows: 1fr 20px 1fr;
-    grid-gap: 0 20px;
+    grid-gap: 10x 20px;
     bottom: 0px;
 }
 
@@ -531,4 +531,14 @@ select {
     font-size: 10px;
     color: #007A8D;
     text-decoration: none;
+}
+
+#dv_header_cursos{
+    display: flex; 
+    justify-content: space-between;
+}
+
+#dv_ordenacao{
+    color: #18ACC4; 
+    display: inline-block;
 }

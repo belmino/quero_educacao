@@ -7,7 +7,7 @@
     <title>Quero Educação</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css" >
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" >
-    <link rel="stylesheet" type="text/css" href="assets/css/mobile.css?10" >
+    <link rel="stylesheet" type="text/css" href="assets/css/mobile.css?11" >
     <link rel="stylesheet" type="text/css" media="(min-width: 480px)" href="assets/css/desktop.css?7" >
 </head>
 <body>
@@ -162,13 +162,13 @@
                     <span id="spn_range_valor">1500</span>
                     <input type="range" name="valor" id="ipt_range_valor" min="100" max="10000" value="1500" onchange="spn_range_valor.innerText=value">
                 </form>
-                <div>
-                    <span style="text-align: left;">
+                <div id="dv_header_cursos" >
+                    <div style="text-align: left;">
                         Resultado:     
-                    </span>
-                    <span style="text-align: right;">
-                        Ordenar por Nome da Faculdade
-                    </span>
+                    </div>
+                    <div style="text-align: right;">
+                        Ordenar por <div id="dv_ordenacao" >Nome da Faculdade <i class="fa fa-angle-down"></i></div>
+                    </div>
                 </div>
                 <div id="dv_cursos" class="tabela">
                 </div>
