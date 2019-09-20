@@ -141,7 +141,7 @@ header, footer{
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 90%;
+    min-height: 293px;
 }
 
 .card hr {
