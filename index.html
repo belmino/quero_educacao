@@ -7,99 +7,11 @@
     <title>Quero Educação</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css" >
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" >
-    <link rel="stylesheet" type="text/css" href="assets/css/mobile.css?5" >
-    <link rel="stylesheet" type="text/css" media="(min-width: 768px)" href="assets/css/desktop.css?3" >
-    <style>
-        .topnav {
-            background-color: #18ACC4;
-            overflow: hidden;
-            grid-column: span 12;
-        }
-
-
-        .dropdown {
-            float: right;
-            overflow: hidden;
-        }
-
-        .topnav a {
-            float: left;
-            color: #f2f2f2;
-            padding: 14px 16px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .dropdown .dropbtn {
-            font-size: 15px;    
-            border: none;
-            outline: none;
-            color: #f2f2f2;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            right: 0;
-        }
-
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .topnav a:hover, .dropdown:hover .dropbtn {
-            background-color: #007A8D;
-            color: white;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .text_main2{
-            font-size: 12px;
-            font-weight: bold;
-            padding: 7px 4px;
-        }
-
-        .text_complement2{
-            font-size: 10px;
-        }
-
-
-        select {
-            /* width: 100%; */
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            height:30px;
-        }
-
-    
-
-
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/mobile.css?10" >
+    <link rel="stylesheet" type="text/css" media="(min-width: 480px)" href="assets/css/desktop.css?7" >
 </head>
 <body>
-    <header style="text-align: center;" >
+    <header >
         <div class="info">
             <div class="table_center_parent" >
                 <div class="table_center_child">
@@ -137,7 +49,7 @@
         
               
         <div class="topnav" >
-            <a href="#" style="font-size: 17px; font-weight: bold">Minha conta</a>
+            <a href="#" id="minha_conta">Minha conta</a>
             <a href="#" class="only_desktop">Pré-matrículas</a>
             <a href="#" class="only_desktop">Bolsas favoritas</a>
             <div class="dropdown only_mobile">
@@ -152,113 +64,22 @@
         </div>
     </header>
     <main >
-        <!-- <ol class="breadcrumb nav">
+        <ul class="breadcrumb only_desktop">
             <li><a href="#">Home</a></li>
             <li><a href="#">Minha conta</a></li>
-            <li class="active"><a href="#">Bolsasfavoritas</a></li>
-        </ol> -->
-        <!-- <h2>Bolsas favoritas</h2> -->
-        <!-- <p>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis.</p> -->
+            <li>Bolsas favoritas</li>
+        </ul>
+        <a href="#" class="breadcrumb_mobile only_mobile"><i class="fa fa-angle-left"></i> Minha conta</a>
 
-        <div class="card" >
-            <span class="fa-stack">
-                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-            <div class="text_main ">Adicionar bolsa</div>
-            <div class="text_complement ">Clique para adicionar bolsas de cursos do seu interesse</div>
-            <a id="open-button" href="#">Open Modal</a>
-        </div>
-        <div class="card" >
-            <img src="assets/images/anhanguera.png" alt="anhanguera" >
-            <div class="text_main2">ANHANGUERA</div>
-            <div class="text_main2">Arquitetura e Urbanismo</div>
-            <div class="text_main2">3,8</div>
-            <hr>
-            <div class="text_main2">PRESENCIAL - NOITE</div>
-            <div class="text_complement2">Início das aulas em 05/07/2019</div>
-            <hr>
-            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
-            <div class="text_complement2 tachado" >R$ 1.487,31</div>
-            <div class="text_main2">R$ 453,63 /mês</div>
-            <div>
-                <button class="btn btn_excluir" >Excluir</button>
-                <button class="btn btn_oferta" >Ver oferta</button> 
-            </div>
-            <!-- <button class="btn btn_indisponivel" >Indisponível</button> -->
-        </div>
+        <h1 style="font-weight: bold;font-size: 18px;padding: 5px;">Bolsas favoritas</h1>
+        <p>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis.</p>
 
-        <div class="card" >
-            <img src="assets/images/anhanguera.png" alt="anhanguera" >
-            <div class="text_main2">ANHANGUERA</div>
-            <div class="text_main2">Arquitetura e Urbanismo</div>
-            <div class="text_main2">3,8</div>
-            <hr>
-            <div class="text_main2">PRESENCIAL - NOITE</div>
-            <div class="text_complement2">Início das aulas em 05/07/2019</div>
-            <hr>
-            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
-            <div class="text_complement2 tachado">R$ 1.487,31</div>
-            <div class="text_main2">R$ 453,63 /mês</div>
-            <div>
-                <button class="btn btn_excluir" >Excluir</button>
-                <button class="btn btn_oferta" >Ver oferta</button>
-            </div>
+        <div id="nav_semestres">
         </div>
+  
 
-        <div class="card" >
-            <img src="assets/images/anhanguera.png" alt="anhanguera"  >
-            <div class="text_main2">ANHANGUERA</div>
-            <div class="text_main2">Arquitetura e Urbanismo</div>
-            <div class="text_main2">3,8</div>
-            <hr>
-            <div class="text_main2">PRESENCIAL - NOITE</div>
-            <div class="text_complement2">Início das aulas em 05/07/2019</div>
-            <hr>
-            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
-            <div class="text_complement2 tachado">R$ 1.487,31</div>
-            <div class="text_main2">R$ 453,63 /mês</div>
-            <div>
-                <button class="btn btn_excluir" >Excluir</button>
-                <button class="btn btn_oferta" >Ver oferta</button>
-            </div>
-        </div>
+        <div id="favoritos"></div>
 
-        <div class="card" >
-            <img src="assets/images/anhanguera.png" alt="anhanguera" >
-            <div class="text_main2">ANHANGUERA</div>
-            <div class="text_main2">Arquitetura e Urbanismo</div>
-            <div class="text_main2">3,8</div>
-            <hr>
-            <div class="text_main2">PRESENCIAL - NOITE</div>
-            <div class="text_complement2">Início das aulas em 05/07/2019</div>
-            <hr>
-            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
-            <div class="text_complement2 tachado">R$ 1.487,31</div>
-            <div class="text_main2">R$ 453,63 /mês</div>
-            <div>
-                <button class="btn btn_excluir" >Excluir</button>
-                <button class="btn btn_oferta" >Ver oferta</button>
-            </div>
-        </div>
-
-        <div class="card" >
-            <img src="assets/images/anhanguera.png" alt="anhanguera" >
-            <div class="text_main2">ANHANGUERA</div>
-            <div class="text_main2">Arquitetura e Urbanismo</div>
-            <div class="text_main2">3,8</div>
-            <hr>
-            <div class="text_main2">PRESENCIAL - NOITE</div>
-            <div class="text_complement2">Início das aulas em 05/07/2019</div>
-            <hr>
-            <div class="text_main2">Mensalidade com o Quero Bolsa</div>
-            <div class="text_complement2 tachado">R$ 1.487,31</div>
-            <div class="text_main2">R$ 453,63 /mês</div>
-            <div>
-                <button class="btn btn_excluir" >Excluir</button>
-                <button class="btn btn_oferta" >Ver oferta</button>
-            </div>
-        </div>
 
     </main>
     <footer >
@@ -312,62 +133,53 @@
                 </div>
             </div>
         </div>
-        <div class="rodape" style='text-align:center;'>
-            <div style="line-height: 50px; font-size: 10px">Feito com <i class="fa fa-heart-o"  ></i> pela Quero Educação</div>
+        <div class="rodape">
+            <div id="msg_rodape">Feito com <i class="fa fa-heart-o"  ></i> pela Quero Educação</div>
         </div>    
     </footer>
 
-
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" id="modal">
+    <div class="modal-overlay closed" id="modal-overlay"></div>
+    <div class="modal closed" id="modal">
         <a title="Close" id="close-button" class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
         <div class="modal-content">
             <div class="modal-header">
-                <h2 style="font-size: 20px;font-weight: bold;padding-bottom: 5px;">Adicionar bolsa</h2>
+                <h2 id="modal-header_titulo">Adicionar bolsa</h2>
                 <h3>Filtre e adicione as bolsas de seu interesse.</h3>
             </div>
-            <!-- <br> -->
-
             <div class="modal-body">
                 <form class="formulario" action="">
-                    <div class="form_cell_left">
-                        <label for="">SELECIONE SUA CIDADE</label>
-                        <select name="" id="sel_cidade">
-                        </select>
+                    <label id="lbl_cidade" class="form_label" for="sel_cidade">SELECIONE SUA CIDADE</label>
+                    <select name="" id="sel_cidade"></select>
+                    <label id="lbl_curso" class="form_label" for="sel_curso">SELECIONE O CURSO DE SUA PREFERÊNCIA</label>
+                    <select name="" id="sel_curso"></select>
+                    <label id="lbl_modalidade" class="form_label" for="">COMO VOCÊ QUER ESTUDAR?</label>
+                    <div id="dv_espaco"></div>
+                    <div id="chk_modalidade">
+                        <label for="chk_presencial"><input type="checkbox" name="presencial" value="Presencial" id="chk_presencial">Presencial</label>                            
+                        <label for="chk_distancia"></label><input type="checkbox" name="distancia" value="EaD" id="chk_distancia">A distancia</label>                            
                     </div>
-    
-                    <div class="form_cell_right">
-                        <label for="">SELECIONE O CURSO DE SUA PREFERÊNCIA</label>
-                        <select name="" id="sel_curso">
-                        </select>
-                    </div>
-    
-                    <div class="form_cell_left">
-                        <label for="">COMO VOCÊ QUER ESTUDAR?</label>
-                        <div>
-                            <input type="checkbox" name="presencial" id="">Presencial
-                            <input type="checkbox" name="distancia" id="">A distancia
-                        </div>
-                    </div>
-    
-                    <div class="form_cell_right">
-                        <label for="">ATÉ QUANTO PODE PAGAR?</label>
-                        <span id="spn_range_valor">100</span>
-                        <input type="range" name="valor" id="ipt_range_valor" min="100" max="10000" value="50" onchange="spn_range_valor.innerText=value">
-                    </div>
-    
+                    <label id="lbl_valor" class="form_label" for="">ATÉ QUANTO PODE PAGAR?</label>
+                    <span id="spn_range_valor">1500</span>
+                    <input type="range" name="valor" id="ipt_range_valor" min="100" max="10000" value="1500" onchange="spn_range_valor.innerText=value">
                 </form>
-                <div id="dv_cursos" class="tabela2">
-                    <!-- <table id="tb_cursos"></table> -->
+                <div>
+                    <span style="text-align: left;">
+                        Resultado:     
+                    </span>
+                    <span style="text-align: right;">
+                        Ordenar por Nome da Faculdade
+                    </span>
+                </div>
+                <div id="dv_cursos" class="tabela">
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn_excluir" >Cancelar</button>
-                <button class="btn btn_oferta" >Adicionar bolsa(s)</button>
+                <button class="btn btn_branco" id="btn_cancelar" >Cancelar</button>
+                <button class="btn btn_indisponivel" id="btn_adicionar" >Adicionar bolsa(s)</button>
             </div>
 
         </div>
     </div>
-    <script src="assets/js/script.js?2"></script>
+    <script src="assets/js/script.js?10"></script>
 </body>
 </html>
