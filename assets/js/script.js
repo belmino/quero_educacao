@@ -162,13 +162,13 @@ function carregaDadosApi(data) {
         anchor.addEventListener("click", clickSemestre);
         nav_semestres.appendChild(anchor);
     });
-
-    montaListaCursos();
-
+    
     if (localStorage.getItem("cursos_favoritos") === null) {
         localStorage.setItem("cursos_favoritos", JSON.stringify([]));
     }
     criarCardsFavoritos();
+
+    montaListaCursos();
 }
 
 function clickSemestre(event){
